@@ -1,0 +1,31 @@
+﻿@model List<Species>
+
+@{
+    Layout = "_LayoutCustom";
+
+}
+
+
+
+
+
+        @foreach (var item in Model)
+        {
+         
+
+                    
+                         <div class="card ">
+                                  <p class="card-title">@item.Name</p>
+                                  <p class="small-desc">@item.Description</p>
+                                  <h6 class="text-danger">  @item.Kind.Color </h6>
+                                  <div class="go-corner"> 
+                                      <div class="go-arrow"><a asp-controller="Mushroom" asp-action="Mush" asp-route-id="@item.Id" class="btn ">→</a></div>
+                                  </div>
+                         </div>
+
+         
+        }
+  
+
+
+

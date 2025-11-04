@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MushPredict.Data\MushPredict.Data.csproj" />
+    <ProjectReference Include="..\MushPredict.Entity\MushPredict.Entity.csproj" />
+  </ItemGroup>
+
 </Project>

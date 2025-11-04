@@ -1,0 +1,55 @@
+﻿@model Species
+
+@{
+    Layout = "_LayoutCustom";
+    ViewData["Title"] = "Görüntü Yükle";
+}
+
+
+
+<div class="d-flex justify-content-center align-items-center"> </div>
+
+    <div >
+        <form asp-controller="Predict" asp-action="Upload" method="post" enctype="multipart/form-data">
+            <h2 class="text-white-50">Görüntü Yükle</h2>
+            <div class="form-group">
+                
+                <input type="file" class="form-control" name="imageFile" id="imageFile" />
+            </div>
+            <button type="submit" class="btnn m-5 ">Yükle</button>
+        </form>
+    </div>
+    @if (ViewBag.Prediction != null)
+    {
+        <div class="alert alert-success mt-3">
+            <strong>Tahmin:</strong> @ViewBag.Prediction <br />
+            <strong>Güven Seviyesi:</strong> @ViewBag.Confidence %
+        </div>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger mt-3">
+            <strong>Hata:</strong> @ViewBag.Error
+        </div>
+    }
+   @if (Model != null)
+    {
+        <div class="d-flex justify-content-center align-items-center">
+
+            <div class="card ">
+                <p class="card-title">@Model.Name</p>
+                <p class="small-desc">
+                    @Model.Description
+                </p>
+                <h6 class="text-danger">  @Model.Kind.Color </h6>
+                <div class="go-corner">
+                    <div class="go-arrow"><a asp-controller="Mushroom" asp-action="Mush" asp-route-id="@Model.Id" class="btn ">→</a></div>
+                </div>
+            </div>
+        </div>
+        
+    }
+    
+
+
